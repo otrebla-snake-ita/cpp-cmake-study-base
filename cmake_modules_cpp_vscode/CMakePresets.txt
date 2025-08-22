@@ -1,0 +1,23 @@
+This file is used to set up tools that support C++20 modules.
+
+The "base" configure preset is using the "Ninja" build system.
+But on windows ("windows-base") we make sure to be using the Visual Studio 17 2022 generator.
+
+To see the available generators just go to Terminal, type:
+    cmake --help 
+This will list the them. The CMake documentation explains this ("Generator Support" in the CMake modules page).
+
+Then the compiler is specified in CMAKE_CXX_COMPILER.
+
+In Linux be sure to have Ninja installed because it is required.
+
+This file is a presets file and we should configure it:
+    ctrl + shift + p (command palette) -> CMake: Select configure preset
+In this case we use windows-base.
+
+Then we have to select a Build preset:
+    Command Palette -> CMake: Select build preset
+In this case we use windows-build
+
+Other CMake commands:
+cmake --version

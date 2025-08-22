@@ -1,0 +1,116 @@
+{
+    "version": 2,
+    "cmakeMinimumRequired": {
+        "major": 4,
+        "minor": 1,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base",
+            "description": "Sets generator, build and install directory, vcpkg",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}"
+        },
+        {
+            "name": "windows-base",
+            "generator": "Visual Studio 17 2022",
+            "description": "Sets x64 arch, compilers and the Visual Studio generator",
+            "inherits": [ 
+                "base"
+            ],
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "cl"
+            }
+        },
+        {
+            "name": "windows-clang",
+            "inherits": [
+                "base"
+            ],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "clang++"
+            },
+            "architecture": {
+                "value": "x86",
+                "strategy": "external"
+            }
+        },
+        {
+            "name": "macos-base",
+            "inherits": [
+                "base"
+            ],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "clang++"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOs": ["MacOS"]
+                }
+            }
+        },
+        {
+            "name": "linux-base",
+            "inherits": [
+                "base"
+            ],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "clang++"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOS": ["Linux"]
+                }
+            }
+        },
+        {
+            "name": "linux-warnings",
+            "description": "Enables dev warnings (-wdev)",
+            "inherits": [ 
+                "linux-base"
+            ],
+            "warnings": {
+                "dev": true
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "core-build",
+            "description": "Inherits base from base configurePreset",
+            "configurePreset": "base",
+            "hidden": true,
+            "inheritConfigureEnvironment": true
+        },
+        {
+            "name": "windows-build",
+            "description": "windows build",
+            "configurePreset": "windows-base",
+            "inherits": "core-build"
+        },
+        {
+            "name": "windows-clang-build",
+            "description": "Passes -v to Ninja",
+            "configurePreset": "windows-clang",
+            "inherits": "core-build",
+            "nativeToolOptions": [ "-v" ]
+        },       
+        {
+            "name": "macos-clean-build",
+            "description": "Clean before build (--clean-first)",
+            "configurePreset": "macos-base",
+            "inherits": "core-build",
+            "cleanFirst": true
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/windows-base/_deps/fmt-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 433,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 448,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 451,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 455,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "fmt-core",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/fmt-build/Debug/fmtd.lib"
+			],
+			"targetId" : "fmt::@976f4f0bee90b99ecdb6",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "fmt-core",
+			"destination" : "include/fmt",
+			"paths" : 
+			[
+				"build/windows-base/_deps/fmt-src/include/fmt/args.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/base.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/chrono.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/color.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/compile.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/core.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/format.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/format-inl.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/os.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/ostream.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/printf.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/ranges.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/std.h",
+				"build/windows-base/_deps/fmt-src/include/fmt/xchar.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "fmt-core",
+			"destination" : "lib/cmake/fmt",
+			"paths" : 
+			[
+				"build/windows-base/_deps/fmt-build/fmt-config.cmake",
+				"build/windows-base/_deps/fmt-build/fmt-config-version.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "fmt-core",
+			"destination" : "lib/cmake/fmt",
+			"exportName" : "fmt-targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "fmt::@976f4f0bee90b99ecdb6",
+					"index" : 4
+				},
+				{
+					"id" : "fmt-header-only::@976f4f0bee90b99ecdb6",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/fmt-build/CMakeFiles/Export/b834597d9b1628ff12ae4314c3a2e4b8/fmt-targets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "fmt-core",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"build/windows-base/_deps/fmt-build/fmt.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/fmt-build",
+		"source" : "build/windows-base/_deps/fmt-src"
+	}
+}
